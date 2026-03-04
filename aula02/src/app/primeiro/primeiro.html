@@ -1,0 +1,7 @@
+<p [class]="minhaClasseCSS"> Esse paragrafo exibe a propriedade minha classe CSS</p>
+<p [class.vermelho]="usarCSS"> Esse paragrafo exibe a propriedade usarCSS</p>
+<p [class.azul]="true"> Esse paragrafo não exibe a propriedade usarCSS</p>
+<p [style.color]="minhaCor"> Teste de Cor</p>
+
+<input [(ngModel)]="minhaCor" placeholder="Digite uma cor" />
+<button (click)="clicar()">Clique aqui</button>
