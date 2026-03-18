@@ -11,9 +11,7 @@ export class Veiculos {
   veiculos: Array<Veiculo> = [];
 
 
-  novo(){
-
-  }
+  novo(){}
 
   editar(veiculo:Veiculo){}
 
