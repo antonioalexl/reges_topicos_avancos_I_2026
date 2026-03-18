@@ -1,0 +1,12 @@
+<app-header></app-header>
+<app-home></app-home>
+
+<h2>Exercício 2 — Card Produto</h2>
+<app-card-produto nome="Camiseta" [preco]="49.90" [disponivel]="true" (comprar)="onComprar($event)"></app-card-produto>
+<app-card-produto nome="Notebook" [preco]="3500" [disponivel]="true" (comprar)="onComprar($event)"></app-card-produto>
+<app-card-produto nome="Mouse Gamer" [preco]="199.90" [disponivel]="false" (comprar)="onComprar($event)"></app-card-produto>
+
+<h2>Exercício 3 — Formulário Produto</h2>
+<app-formulario-produto></app-formulario-produto>
+
+<app-footer></app-footer>

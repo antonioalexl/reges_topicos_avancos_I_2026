@@ -1,0 +1,6 @@
+<div class="card">
+  <h3>{{ nome() }}</h3>
+  <p>Preço: R$ {{ preco() }}</p>
+  <p>{{ disponivel() ? 'Em estoque' : 'Indisponível' }}</p>
+  <button (click)="onComprar()">Comprar</button>
+</div>

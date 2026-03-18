@@ -1,0 +1,42 @@
+
+<div class="veiculos">
+  <h1>Veículos</h1>
+</div>
+<div class="header">
+  <button (click)="novo()">Novo</button>
+</div>
+<table>
+  <thead>
+    <tr>
+      <th>Id</th>
+      <th>Marca</th>
+      <th>Modelo</th>
+      <th>Placa</th>
+      <th>Ano</th>
+      <th>Combustivel</th>
+      <th>Chassi</th>
+      <th>Categoria</th>
+      <th>Disponível</th>
+      <th>Cor</th>
+      <th>#</th>
+    </tr>
+  </thead>
+  <tbody>
+    @for (item of veiculos; track item.Id) {
+      <td>{{ item.Id }}</td>
+      <td>{{ item.Marca }}</td>
+      <td>{{ item.Modelo }}</td>
+      <td>{{ item.Placa }}</td>
+      <td>{{ item.Ano }}</td>
+      <td>{{ item.Combustivel }}</td>
+      <td>{{ item.Chassi }}</td>
+      <td>{{ item.Categoria }}</td>
+      <td>{{ item.Disponivel }}</td>
+      <td>{{ item.Cor }}</td>
+      <td>
+        <button (click)="editar(item)">Editar</button>
+        <button (click)="excluir(item)">Excluir</button>
+      </td>
+    }
+  </tbody>
+</table>

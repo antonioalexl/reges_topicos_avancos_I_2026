@@ -1,0 +1,13 @@
+<!-- Pipes básicos no template -->
+<p>{{ texto | uppercase }}</p>
+<!-- ANGULAR FRAMEWORK -->
+<p>{{ texto | titlecase | slice:0:10}}</p>
+<!-- Angular Framework -->
+<p>{{ valor | currency:'BRL' }}</p>
+
+{{ valor |
+currency:'BRL':'symbol':'1.1' }}
+
+<!-- R$1.234.567,89 -->
+<p>{{ hoje | date:'dd/MM/yyyy ' }}</p>
+<!-- 01/07/2025 14:30 -->

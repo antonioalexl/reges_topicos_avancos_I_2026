@@ -1,0 +1,39 @@
+.formulario {
+  padding: 16px;
+  margin: 16px 0;
+}
+
+.formulario label {
+  display: block;
+  margin-top: 8px;
+}
+
+.formulario input {
+  padding: 6px;
+  margin-top: 4px;
+  width: 200px;
+}
+
+.formulario button {
+  display: block;
+  margin-top: 12px;
+  padding: 8px 16px;
+  background-color: #2196F3;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.formulario button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.lista {
+  padding: 16px;
+}
+
+.caro {
+  color: red;
+}
