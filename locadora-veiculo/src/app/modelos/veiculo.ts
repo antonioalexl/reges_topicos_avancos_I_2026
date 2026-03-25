@@ -1,4 +1,4 @@
-export class Veiculo {
+export class VeiculoModel {
   Id?:number;
   Marca?:string;
   Modelo?:string;
@@ -10,3 +10,4 @@ export class Veiculo {
   Chassi?:string;
   Cor?:string;
 }
+

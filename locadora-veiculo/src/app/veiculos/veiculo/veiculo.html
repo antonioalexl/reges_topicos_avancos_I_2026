@@ -1,1 +1,36 @@
-<p>veiculo works!</p>
+<form >
+
+<label for="Marca">Marca </label>
+<input id="Marca" name="Marca" type="text" [(ngModel)]="veiculo.Marca"/>
+
+<label for="Modelo">Modelo </label>
+<input id="Modelo" name="Modelo" type="text" [(ngModel)]="veiculo.Modelo"/>
+
+<label for="Placa">Placa </label>
+<input id="Placa" name="Placa" type="text" [(ngModel)]="veiculo.Placa"/>
+
+<label for="Ano">Ano </label>
+<input id="Ano" name="Ano" type="number" [(ngModel)]="veiculo.Ano"/>
+
+<label for="Combustivel">Combustivel </label>
+<input id="Combustivel" name="Combustivel" type="text" [(ngModel)]="veiculo.Combustivel"/>
+
+<label for="Chassi">Chassi </label>
+<input id="Chassi" name="Chassi" type="text" [(ngModel)]="veiculo.Chassi"/>
+
+<label for="Categoria">Categoria </label>
+<input id="Categoria" name="Categoria" type="text" [(ngModel)]="veiculo.Categoria"/>
+
+<label for="Disponivel">Disponível </label>
+<input id="Disponivel" name="Disponivel" type="checkbox" [(ngModel)]="veiculo.Disponivel"/>
+
+<label for="Cor">Cor </label>
+<input id="Cor" name="Cor" type="text" [(ngModel)]="veiculo.Cor"/>
+
+
+<label for="Id">Id </label>
+<input id="Id" name="Id" type="number" [(ngModel)]="veiculo.Id" disabled/>
+
+<button type="button" (click)="submit()">Salvar</button>
+<button type="button" (click)="voltar()">Voltar</button>
+</form>
