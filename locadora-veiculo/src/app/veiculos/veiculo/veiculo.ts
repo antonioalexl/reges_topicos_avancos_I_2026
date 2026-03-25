@@ -12,6 +12,7 @@ import { Servico } from '../servico';
 })
 export class Veiculo {
   id: number = 0;
+  veiculo: VeiculoModel = {};
 
   constructor(
     private router: Router,
@@ -26,7 +27,7 @@ export class Veiculo {
     });
   }
 
-  veiculo: VeiculoModel = {};
+
 
   voltar() {
     this.router.navigate(['/veiculos']);
