@@ -28,7 +28,6 @@ export class Veiculo {
   }
 
 
-
   voltar() {
     this.router.navigate(['/veiculos']);
   }

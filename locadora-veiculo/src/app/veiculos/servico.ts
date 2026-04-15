@@ -22,6 +22,9 @@ export class Servico {
   }
 
   excluirVeiculo(id:number){
-    this.veiculos = this.veiculos.filter(v => v.Id !== id);
+    var index = this.veiculos.findIndex(v => v.Id === id);
+    if(index > -1){
+      this.veiculos.splice(index, 1);
+    }
   }
 }
