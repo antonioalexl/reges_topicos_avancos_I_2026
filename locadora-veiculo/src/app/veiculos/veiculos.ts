@@ -1,7 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, signal } from '@angular/core';
 import { Router } from '@angular/router';
 import { VeiculoModel } from '../modelos/veiculo';
-import { Servico } from './servico';
+import { VeiculosService } from '../services/veiculos.service';
 
 @Component({
   selector: 'app-veiculos',
@@ -10,26 +10,35 @@ import { Servico } from './servico';
   styleUrl: './veiculos.css',
 })
 export class Veiculos {
-  veiculos: Array<VeiculoModel> = [];
+  veiculos = signal<VeiculoModel[]>([]);
 
-  constructor(private router: Router, private servico: Servico) {
+  constructor(
+    private router: Router,
+    private servico: VeiculosService,
+  ) {
     this.obterVeiculos();
   }
 
-  novo(){
+  novo() {
     this.router.navigate(['/veiculos/novo']);
   }
 
-  editar(veiculo:VeiculoModel){
+  editar(veiculo: VeiculoModel) {
     this.router.navigate(['/veiculos/editar', veiculo.Id]);
   }
 
-  excluir(veiculo:VeiculoModel){
-    this.servico.excluirVeiculo(veiculo.Id!);
-    this.obterVeiculos();
+  excluir(veiculo: VeiculoModel) {
+    this.servico.deletar(veiculo.Id!).subscribe({
+      next: () => (this.obterVeiculos()),
+      error: (msg) => (alert('Erro ao obter os veículos: ' + msg)),
+    });
+
   }
 
-  obterVeiculos(){
-    this.veiculos = this.servico.obterVeiculos();
+  obterVeiculos() {
+    this.servico.listar().subscribe({
+      next: (dados) => this.veiculos.set(dados),
+      error: (msg) => (console.error('Erro ao obter os veículos: ' + msg)),
+    });
   }
 }
