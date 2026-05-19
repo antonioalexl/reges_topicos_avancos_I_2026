@@ -1,36 +1,135 @@
-<form >
+<div class="container my-4" style="max-width: 960px;">
+  <div class="card shadow-sm border-0">
+    <div class="card-header bg-primary text-white d-flex align-items-center justify-content-between">
+      <h2 class="h5 mb-0">
+        <i class="bi bi-car-front-fill me-2"></i>
+        {{ id ? 'Editar Veículo' : 'Novo Veículo' }}
+      </h2>
+      @if (id) {
+        <span class="badge bg-light text-primary">ID #{{ veiculo().Id }}</span>
+      } @else {
+        <span class="badge bg-light text-primary">Novo cadastro</span>
+      }
+    </div>
 
-<label for="Marca">Marca </label>
-<input id="Marca" name="Marca" type="text" [(ngModel)]="veiculo.Marca"/>
+    <div class="card-body p-4">
+      <form (ngSubmit)="submit()" #form="ngForm" novalidate>
 
-<label for="Modelo">Modelo </label>
-<input id="Modelo" name="Modelo" type="text" [(ngModel)]="veiculo.Modelo"/>
+        <h6 class="text-uppercase text-muted small fw-bold mb-3">
+          <i class="bi bi-hash me-1"></i>Identificação
+        </h6>
+        <div class="row g-3 mb-4">
+          <div class="col-md-3">
+            <label for="Id" class="form-label">Id</label>
+            <input id="Id" name="Id" type="number"
+                   class="form-control bg-light"
+                   [(ngModel)]="veiculo().Id" disabled />
+          </div>
 
-<label for="Placa">Placa </label>
-<input id="Placa" name="Placa" type="text" [(ngModel)]="veiculo.Placa"/>
+          <div class="col-md-4">
+            <label for="Placa" class="form-label">Placa <span class="text-danger">*</span></label>
+            <input id="Placa" name="Placa" type="text"
+                   class="form-control text-uppercase fw-semibold"
+                   placeholder="ABC-1D23"
+                   maxlength="8"
+                   [(ngModel)]="veiculo().Placa" />
+          </div>
 
-<label for="Ano">Ano </label>
-<input id="Ano" name="Ano" type="number" [(ngModel)]="veiculo.Ano"/>
+          <div class="col-md-5 d-flex align-items-end">
+            <div class="form-check form-switch fs-5">
+              <input id="Disponivel" name="Disponivel" type="checkbox"
+                     class="form-check-input" role="switch"
+                     [(ngModel)]="veiculo().Disponivel" />
+              <label for="Disponivel" class="form-check-label fs-6">
+                Disponível para locação
+              </label>
+            </div>
+          </div>
+        </div>
 
-<label for="Combustivel">Combustivel </label>
-<input id="Combustivel" name="Combustivel" type="text" [(ngModel)]="veiculo.Combustivel"/>
+        <h6 class="text-uppercase text-muted small fw-bold mb-3">
+          <i class="bi bi-car-front me-1"></i>Dados do Veículo
+        </h6>
+        <div class="row g-3 mb-4">
+          <div class="col-md-6">
+            <label for="Marca" class="form-label">Marca <span class="text-danger">*</span></label>
+            <input id="Marca" name="Marca" type="text" class="form-control"
+                   placeholder="Ex.: Toyota"
+                   [(ngModel)]="veiculo().Marca" />
+          </div>
 
-<label for="Chassi">Chassi </label>
-<input id="Chassi" name="Chassi" type="text" [(ngModel)]="veiculo.Chassi"/>
+          <div class="col-md-6">
+            <label for="Modelo" class="form-label">Modelo <span class="text-danger">*</span></label>
+            <input id="Modelo" name="Modelo" type="text" class="form-control"
+                   placeholder="Ex.: Corolla"
+                   [(ngModel)]="veiculo().Modelo" />
+          </div>
 
-<label for="Categoria">Categoria </label>
-<input id="Categoria" name="Categoria" type="text" [(ngModel)]="veiculo.Categoria"/>
+          <div class="col-md-4">
+            <label for="Ano" class="form-label">Ano</label>
+            <input id="Ano" name="Ano" type="number" class="form-control"
+                   placeholder="2024"
+                   [(ngModel)]="veiculo().Ano" />
+          </div>
 
-<label for="Disponivel">Disponível </label>
-<input id="Disponivel" name="Disponivel" type="checkbox" [(ngModel)]="veiculo.Disponivel"/>
+          <div class="col-md-4">
+            <label for="Cor" class="form-label">Cor</label>
+            <input id="Cor" name="Cor" type="text" class="form-control"
+                   placeholder="Ex.: Prata"
+                   [(ngModel)]="veiculo().Cor" />
+          </div>
 
-<label for="Cor">Cor </label>
-<input id="Cor" name="Cor" type="text" [(ngModel)]="veiculo.Cor"/>
+          <div class="col-md-4">
+            <label for="Categoria" class="form-label">Categoria</label>
+            <input id="Categoria" name="Categoria" type="text" class="form-control"
+                   placeholder="Ex.: Sedan"
+                   [(ngModel)]="veiculo().Categoria" />
+          </div>
+        </div>
 
+        <h6 class="text-uppercase text-muted small fw-bold mb-3">
+          <i class="bi bi-gear me-1"></i>Especificações Técnicas
+        </h6>
+        <div class="row g-3 mb-2">
+          <div class="col-md-6">
+            <label for="Combustivel" class="form-label">Combustível</label>
+            <select id="Combustivel" name="Combustivel" class="form-select"
+                    [(ngModel)]="veiculo().Combustivel">
+              <option [ngValue]="undefined" disabled>Selecione...</option>
+              <option value="Gasolina">Gasolina</option>
+              <option value="Etanol">Etanol</option>
+              <option value="Flex">Flex</option>
+              <option value="Diesel">Diesel</option>
+              <option value="Elétrico">Elétrico</option>
+              <option value="Híbrido">Híbrido</option>
+            </select>
+          </div>
 
-<label for="Id">Id </label>
-<input id="Id" name="Id" type="number" [(ngModel)]="veiculo.Id" disabled/>
+          <div class="col-md-6">
+            <label for="Chassi" class="form-label">Chassi</label>
+            <input id="Chassi" name="Chassi" type="text"
+                   class="form-control text-uppercase"
+                   placeholder="17 caracteres"
+                   maxlength="17"
+                   [(ngModel)]="veiculo().Chassi" />
+          </div>
+        </div>
+      </form>
+    </div>
 
-<button type="button" (click)="submit()">Salvar</button>
-<button type="button" (click)="voltar()">Voltar</button>
-</form>
+    <div class="card-footer bg-light d-flex justify-content-between align-items-center py-3">
+      <small class="text-muted">
+        <i class="bi bi-info-circle me-1"></i>
+        Campos com <span class="text-danger">*</span> são obrigatórios.
+      </small>
+      <div class="d-flex gap-2">
+        <button type="button" class="btn btn-outline-secondary" (click)="voltar()">
+          <i class="bi bi-arrow-left me-1"></i>Voltar
+        </button>
+        <button type="button" class="btn btn-success" (click)="submit()">
+          <i class="bi bi-check-lg me-1"></i>Salvar
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
